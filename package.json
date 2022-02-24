@@ -1,0 +1,21 @@
+{
+	"name": "my-expenses",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server/App.js",
+	"type": "module",
+	"scripts": {
+		"migrate": "node server/database/migrations.js",
+		"start": "node server/App.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"dotenv": "^16.0.0",
+		"express": "^4.17.3",
+		"mysql2": "^2.3.3",
+		"sequelize": "^6.16.3"
+	}
+}
