@@ -1,7 +1,7 @@
 import User from "../database/models/User.js";
 
 class UserController {
-	static async getsAllUsers(req, res) {
+	static async getAllUsers(req, res) {
 		const response = await User.findAll({ raw: true });
 		res.json({ response });
 	}
