@@ -9,7 +9,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post("/user", function (req, res) {
-	console.log(req.body.name);
 	res.json({ name: req.body.name });
 });
 

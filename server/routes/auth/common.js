@@ -22,16 +22,12 @@ const checkLoggedIn = (req, res, next) => {
 };
 
 const authUser = (email, password, done) => {
-	const findUser = User.findOne({ where: { email: email }, raw: true }).then(
-		(e) => {
-			console.log(e, "user");
-			if (!e) return done(null, false);
-			if (!bcrypt.compareSync(password, e.password))
-				return done(null, false);
-			let authenticated_user = { id: e.id, name: e.name };
-			return done(null, authenticated_user);
-		}
-	);
+	User.findOne({ where: { email: email }, raw: true }).then((user) => {
+		if (!user) return done(null, false);
+		if (!bcrypt.compareSync(password, user.password))
+			return done(null, false);
+		return done(null, { id: user.id, name: user.name });
+	});
 };
 
 passport.serializeUser((userObj, done) => {
