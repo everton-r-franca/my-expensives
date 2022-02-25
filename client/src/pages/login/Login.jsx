@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 import "./Login.css";
 export default class Login extends Component {
 	constructor(props) {
@@ -16,38 +17,47 @@ export default class Login extends Component {
 
 	render() {
 		return (
-			<form className="login-form">
-				<input
-					type="text"
-					className="form-control"
-					value={this.state.email}
-					onChange={(e) => this.validEmail(e)}
-					placeholder="email@example.com"
-				/>
-				<div className="text-left emailInfo mt-2 mb-2 text-muted">
-					{this.state.emailInfo}
+			<div className="card login-form">
+				<div className="card-body">
+					<div className="lead">Login</div>
+					<form className="mt-5">
+						<input
+							type="text"
+							className="form-control"
+							value={this.state.email}
+							onChange={(e) => this.validEmail(e)}
+							placeholder="email@example.com"
+						/>
+						<div className="text-left emailInfo mt-2 mb-2 text-muted">
+							{this.state.emailInfo}
+						</div>
+						<input
+							type="password"
+							className="form-control"
+							value={this.state.password}
+							onChange={(e) => this.validPassword(e)}
+							placeholder="Senha mais segura"
+						/>
+						<div className="text-left passwordInfo mt-2 mb-4 text-muted">
+							{this.state.passwordInfo}
+						</div>
+						<button
+							type="button"
+							className="btn btn-primary"
+							onClick={(e) => this.submit(e)}
+						>
+							Acessar
+						</button>
+						<div className="loginState mt-4">
+							{this.state.loginState === "success" ? (
+								<Navigate to="/" />
+							) : (
+								this.state.loginState
+							)}
+						</div>
+					</form>
 				</div>
-				<input
-					type="password"
-					className="form-control"
-					value={this.state.password}
-					onChange={(e) => this.validPassword(e)}
-					placeholder="Senha mais segura"
-				/>
-				<div className="text-left passwordInfo mt-2 mb-4 text-muted">
-					{this.state.passwordInfo}
-				</div>
-				<button
-					type="button"
-					className="btn btn-primary"
-					onClick={(e) => this.submit(e)}
-				>
-					Acessar
-				</button>
-				<div className="loginState mt-5">
-					{this.state.loginState}
-				</div>
-			</form>
+			</div>
 		);
 	}
 	validEmail(e) {
