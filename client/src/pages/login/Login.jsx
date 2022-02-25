@@ -39,7 +39,7 @@ export default class Login extends Component {
 				</div>
 				<button
 					type="button"
-					class="btn btn-primary"
+					className="btn btn-primary"
 					onClick={(e) => this.submit(e)}
 				>
 					Acessar
