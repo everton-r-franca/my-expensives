@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import "./Login.css";
 export default class Login extends Component {
 	constructor(props) {
 		super(props);
@@ -16,23 +16,37 @@ export default class Login extends Component {
 
 	render() {
 		return (
-			<form>
+			<form className="login-form">
 				<input
 					type="text"
+					className="form-control"
 					value={this.state.email}
 					onChange={(e) => this.validEmail(e)}
+					placeholder="email@example.com"
 				/>
-				<div className="emailInfo">{this.state.emailInfo}</div>
+				<div className="text-left emailInfo mt-2 mb-2 text-muted">
+					{this.state.emailInfo}
+				</div>
 				<input
 					type="password"
+					className="form-control"
 					value={this.state.password}
 					onChange={(e) => this.validPassword(e)}
+					placeholder="Senha mais segura"
 				/>
-				<div className="passwordInfo">
+				<div className="text-left passwordInfo mt-2 mb-4 text-muted">
 					{this.state.passwordInfo}
 				</div>
-				<button onClick={(e) => this.submit(e)}>Acessar</button>
-				<div className="loginState">{this.state.loginState}</div>
+				<button
+					type="button"
+					class="btn btn-primary"
+					onClick={(e) => this.submit(e)}
+				>
+					Acessar
+				</button>
+				<div className="loginState mt-5">
+					{this.state.loginState}
+				</div>
 			</form>
 		);
 	}
