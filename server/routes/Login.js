@@ -10,6 +10,8 @@ app.use(Auth.Session);
 app.use(Auth.passport.initialize());
 app.use(Auth.passport.session());
 
+app.get("/checkAuthenticated", LoginController.checkAuthenticated);
+
 app.post(
 	"/login",
 	Auth.checkLoggedIn,

@@ -1,3 +1,3 @@
-export default function teste(props) {
-	return "dashboard";
+export default function Dashboard(props) {
+	return <div>Dashboard</div>;
 }
