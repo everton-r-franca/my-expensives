@@ -1,5 +1,6 @@
 import express from "express";
 import Auth from "./auth/common.js";
+import LoginController from "../controllers/LoginController.js";
 
 const app = express();
 
@@ -13,18 +14,9 @@ app.post(
 	"/login",
 	Auth.checkLoggedIn,
 	Auth.passport.authenticate("local"),
-	function (req, res) {
-		res.json({ message: "success", id: req.user.id });
-	}
+	LoginController.login
 );
 
-app.delete("/login", (req, res) => {
-	req.logout();
-	res.json({ message: "logout efetuado com sucesso." });
-});
-
-app.get("/authtest", Auth.checkAuthenticated, (req, res) => {
-	res.json({ message: "Bem vindo ao dashboard", id: req.user.id });
-});
+app.delete("/login", LoginController.logout);
 
 export default app;
