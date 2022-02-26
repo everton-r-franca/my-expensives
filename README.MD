@@ -10,3 +10,5 @@ This app is subdivided in two modules:
 
 **server**: all rules from backend developed in nodejs (to access this module go the terminal to `/` in your path).
 **client**: all rules from frontend in reactjs (to access this module go the terminal to `/client` in yout path).
+
+This project need to be refactored.

@@ -9,7 +9,7 @@ const PORT = process.env.APP_PORT || 3001;
 
 //const salt = await bcrypt.genSalt(15);
 //console.log(await bcrypt.hash(password, salt));
-//await bcrypt.compare("W17l20e07lidwaleve", user.password),
+//await bcrypt.compare("We", user.password),
 
 app.use("/", RouteLogin);
 app.use("/api", RouteAPI);
